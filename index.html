@@ -81,10 +81,15 @@
 		  display: flex;align-items:center;justify-content:space-between;
 		}
 		.kondisional-item .icon {
+			padding-top: 0px;
+			font-size: 50px;
 		  flex: 1;
 		}
 		.kondisional-item .konten {
 		  flex: 11;
+		}
+		.konten > div{
+		  padding-left: 15px;
 		}
 	</style>
 </head>
@@ -202,7 +207,7 @@
 						result += `
 							<div class="kondisional kondisional-item p-3 mb-3" onclick="screenKondisional({parent:${data[i].id},id:${res.id}})">
 								<div class="icon"><span class="icon-tanya warna-${warna}"></span></div>
-								<div class="konten">${data[i].nama}</div>
+								<div class="konten"><div>${data[i].nama}</div></div>
 									</div>`;
 					}
 				}
