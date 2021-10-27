@@ -91,9 +91,9 @@
 <body>
 	<div id="menu"></div>
 	<div id="root"></div>
-	<!-- <div id="splash"><div id="full-putih">
+	<div id="splash"><div id="full-putih">
 		
-	</div></div> -->
+	</div></div>
 
 	<script src="icon-asi.js"></script>
 	<script src="icon-ayah.js"></script>
@@ -293,7 +293,10 @@
 			let url = URL.createObjectURL(blob);
 			return url;
 		}
-		// document.getElementById("full-putih").innerHTML = renderSVG("splash_image()");
+		document.getElementById("full-putih").innerHTML = renderSVG("splash_image()");
+		setTimeout(function () {
+			document.getElementById("splash").innerHTML = "";
+		},2000)
 	</script>
 </body>
 </html>
