@@ -17,6 +17,7 @@
 		  font-style: normal;
 		  font-display: swap;
 		}
+		.text-white{color: #fff;}
 
 		[class^="icon-"], [class*=" icon-"] {
 		  /* use !important to prevent issues with browser extensions that change font/*/
@@ -48,6 +49,7 @@
 			border-top: 1px solid #eee;
 			box-shadow: 0px 0px 5px gray;
 			position: fixed;
+			width: 100%;
 			bottom: 0;}
 		.wrapper {
 			display: flex;
@@ -227,7 +229,7 @@
 		}
 		function screenHome(res) {
 			let image = `<img src="${image_home_blob}" alt="">`;
-			return `<div class="p-3">${image}</div><div class="p-3"><p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Facilis explicabo, harum, officiis corporis labore sunt perspiciatis dignissimos aliquid saepe, totam nihil vitae, cumque? Voluptate, placeat impedit mollitia ab magnam qui.</p></div>`;
+			return `<div class="p-3">${image}</div><div class="p-3"><p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Facilis explicabo, harum, officiis corporis labore sunt perspiciatis dignissimos aliquid saepe, totam nihil vitae, cumque? Voluptate, placeat impedit mollitia ab magnam qui.</p></div><span class="icon-tanya text-white"></span>`;
 		}
 		function screenAsiIbu(res) {
 			let image = `<img src="${image_asi_blob}" alt="">`;
