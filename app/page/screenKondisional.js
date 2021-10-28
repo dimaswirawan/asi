@@ -1,20 +1,15 @@
 function screenKondisional(res) {
 	let data = [];
-	let title = "";
 	if (res.id == 1) {
-		title = " ke Kendala pada ASI Ibu"
 		data = DATA.asi;
 	}else if (res.id == 2) {
-		title = " ke Kendala pada Anak"
 		data = DATA.baby;
 	}else if (res.id == 4) {
-		title = " ke Kendala Ayah ASI"
 		data = DATA.ayah;
 	}else if (res.id == 5) {
-		title = " ke Kendala Ibu Pekerja"
 		data = DATA.pekerja;
 	}
-	let result = `<div data-data="${res.id}" onclick="back()" class="back p-3"><span class="icon-back"></span> Kembali${title}</div><div class="kondisional-wrap">`;
+	let result = `<div data-data="${res.id}" onclick="back()" class="back p-3"><span class="icon-back"></span> Kembali</div><div class="kondisional-wrap">`;
 	let jawaban = false;
 	let warna = 0;
 	for (var i = 0; i < data.length; i++) {
