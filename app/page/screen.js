@@ -20,5 +20,5 @@ function screen(res) {
 	}
 	konten += menuBottom(id);
 	document.body.style.backgroundColor = "#fff";
-	render(konten);
+	render({view:konten,res:res});
 }

@@ -1,4 +1,4 @@
-DATA.asi = [
+DATA.baby = [
 	{id:1,parent:0,nama:"Kondisional A <br>lorem",penjelasan:"",advice:"",jawaban:false},
 	{id:2,parent:0,nama:"Kondisional B",penjelasan:"",advice:"",jawaban:false},
 	{id:3,parent:0,nama:"Kondisional C",penjelasan:"",advice:"",jawaban:false},

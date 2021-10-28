@@ -15,3 +15,27 @@ var image_asi_blob = generateBlobSVG("image_asi()");
 var image_baby_blob = generateBlobSVG("image_baby()");
 var image_ayah_blob = generateBlobSVG("image_ayah()");
 var image_pekerja_blob = generateBlobSVG("image_pekerja()");
+
+var image_load = [
+	"icon_home_blob",
+	"icon_asi_blob",
+	"icon_baby_blob",
+	"icon_ayah_blob",
+	"icon_pekerja_blob",
+	"icon_home_blob_active",
+	"icon_asi_blob_active",
+	"icon_baby_blob_active",
+	"icon_ayah_blob_active",
+	"icon_pekerja_blob_active",
+	"image_home_blob",
+	"image_asi_blob",
+	"image_baby_blob",
+	"image_ayah_blob",
+	"image_pekerja_blob"
+];
+var for_load = "";
+for (var i = 0; i < image_load.length; i++) {
+	let img_load = eval(image_load[i]);
+	for_load += `<img src="${img_load}" />`;
+}
+document.getElementById('load').innerHTML = for_load;

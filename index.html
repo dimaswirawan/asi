@@ -93,14 +93,17 @@
 		.konten > div{
 		  padding-left: 15px;
 		}
+		#load img{width: 3%;}
 	</style>
 </head>
 <body>
-	<div id="menu"></div>
+	<div id="load"></div>
 	<div id="root"></div>
 	<div id="splash"><div id="full-putih">
 		
 	</div></div>
+	<script src="app/helper/saveHistory.js"></script>
+	<script src="app/helper/back.js"></script>
 	<script src="app/helper/render.js"></script>
 	<script src="app/helper/generateBlobSVG.js"></script>
 
@@ -120,6 +123,9 @@
 	<script src="app/data/image.js"></script>
 	<script src="app/data/menu.js"></script>
 	<script src="app/data/konten-asi.js"></script>
+	<script src="app/data/konten-baby.js"></script>
+	<script src="app/data/konten-ayah.js"></script>
+	<script src="app/data/konten-pekerja.js"></script>
 	
 	<script src="app/component/menu.js"></script>
 	
@@ -132,6 +138,7 @@
 		document.getElementById("full-putih").innerHTML = `<img src="${generateBlobSVG("splash_image()")}" />`;
 
 		setTimeout(function () {
+			document.getElementById("load").innerHTML = "";
 			document.getElementById("splash").innerHTML = "";
 		},2000);
 
