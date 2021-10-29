@@ -1,4 +1,3 @@
-var HISTORY = []
 function saveHistory(res) {
 	if (res.res.from_back) {
 
