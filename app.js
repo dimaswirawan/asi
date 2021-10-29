@@ -1754,6 +1754,8 @@ for (var i = 0; i < image_load.length; i++) {
 }
 document.getElementById('load').innerHTML = for_load;
 var DATA = {};
+DATA.wa = "";
+DATA.deskripsi = "";
 DATA.pekerja = [];
 DATA.baby = [];
 DATA.ayah = [];
@@ -1845,7 +1847,7 @@ function menuBottom(menu_aktif) {
 }
 function screen(res) {
 	let id = res.dataset.data;
-	let konten = "";
+	let konten = `<div class="text-right p-3"><a href="#" onclick="window.open('https://wa.me/${DATA.wa}', '_system'); return false;"><span class="hubungi"><span class="i-wa"></span> <small>Chat Konselor</small></span></a></div>`;
 	let image = "";
 	if (id == 1) {
 		image = `<img src="${image_asi_blob}" alt="">`;
@@ -1854,8 +1856,9 @@ function screen(res) {
 		image = `<img src="${image_baby_blob}" alt="">`;
 		konten += `<div class="main-screen p-3">${image} <br> <br><span class="tombol-mulai" onclick="screenKondisional({parent:0,id:'${id}'})">Mulai</span></div>`;
 	}else if (id == 3) {
+		konten = "";
 		image = `<img src="${image_home_blob}" alt="">`;
-		konten += `<div class="p-3">${image}</div><div class="p-3"><p>Keberhasilan menyusui sangat dipengaruhi oleh pengetahuan Ibu, dukungan menyusui dari provider kesehatan serta keluarga. AplikASI Menyusui siap membersamai Ibu dalam menghadapi hambatan dan permasalahan yang seringkali di jumpai dalam proses menyusui. Menyusui menjadi lebih Mudah dan Menyenangkan.</p></div><span class="icon-tanya text-white"></span>`;
+		konten += `<div class="p-3">${image}</div><div class="p-3"><p>${DATA.deskripsi}</p></div><span class="icon-tanya text-white"></span><span class="i-wa text-white"></span>`;
 	}else if (id == 4) {
 		image = `<img src="${image_ayah_blob}" alt="">`;
 		konten += `<div class="main-screen p-3">${image} <br> <br><span class="tombol-mulai" onclick="screenKondisional({parent:0,id:'${id}'})">Mulai</span></div>`;
@@ -1957,6 +1960,13 @@ function screenKondisional(res) {
 		}
 		document.body.style.backgroundColor = "#fff";
 	}else{
+		result += `
+			<a href="#" onclick="window.open('https://wa.me/${DATA.wa}', '_system'); return false;">
+				<div class="kondisional kondisional-item p-3 mb-3 hubungi-konselor" onclick="">
+					<div class="icon"><span class="i-wa"></span></div>
+					<div class="konten"><div>Klik Disini! Jika Tidak Ada Kondisi Yang Anda Alami</div></div>
+				</div>
+			</a>`;
 		document.body.style.backgroundColor = "#e9eef5";
 	}
 	result += "</div>";

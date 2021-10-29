@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'"> -->
 	<title>AplikASI Menyusui</title>
 	<style>
+		a{text-decoration: none;}
 		@font-face{font-family:'Raleway';font-style:normal;font-weight:400;src:url('font/raleway.ttf') format('truetype');font-display: swap;}
 		@font-face {
 		  font-family: 'icomoon';
@@ -14,6 +14,17 @@
 		    url('font/icomoon.ttf?r5nvo1') format('truetype'),
 		    url('font/icomoon.woff?r5nvo1') format('woff'),
 		    url('font/icomoon.svg?r5nvo1#icomoon') format('svg');
+		  font-weight: normal;
+		  font-style: normal;
+		  font-display: swap;
+		}
+		@font-face {
+		  font-family: 'wa';
+		  src:  url('font/wa.eot?r5nvo1');
+		  src:  url('font/wa.eot?r5nvo1#iefix') format('embedded-opentype'),
+		    url('font/wa.ttf?r5nvo1') format('truetype'),
+		    url('font/wa.woff?r5nvo1') format('woff'),
+		    url('font/wa.svg?r5nvo1#wa') format('svg');
 		  font-weight: normal;
 		  font-style: normal;
 		  font-display: swap;
@@ -34,12 +45,29 @@
 		  -webkit-font-smoothing: antialiased;
 		  -moz-osx-font-smoothing: grayscale;
 		}
+		[class^="i-"], [class*=" i-"] {
+		  /* use !important to prevent issues with browser extensions that change font/*/
+		  font-family: 'wa' !important;
+		  speak: never;
+		  font-style: normal;
+		  font-weight: normal;
+		  font-variant: normal;
+		  text-transform: none;
+		  line-height: 1;
+
+		  /* Better Font Rendering =========== */
+		  -webkit-font-smoothing: antialiased;
+		  -moz-osx-font-smoothing: grayscale;
+		}
 
 		.icon-tanya:before {
 		  content: "\e900";
 		}
 		.icon-back:before {
 		  content: "\ea40";
+		}
+		.i-wa:before {
+		  content: "\e907";
 		}
 		body{padding: 0;margin: 0;height: 100%;font-family: 'Raleway', sans-serif;font-size: 20px;line-height: 30px;}
 		.icon_menu{position: relative;}
@@ -64,14 +92,12 @@
 			border-radius: 3px;
 			flex: 1;
 		}
-		.main-screen{margin-top: 20%;text-align: center;}
+		.main-screen{margin-top: 5%;text-align: center;}
 		.tombol-mulai{border-radius: 25px;background: #ffcc00;border: 3px solid #000;padding: 15px 30px;}
 		#root{padding-bottom:75px;}
 		.p-3{padding: 15px;}
 		#full-putih{background: #fff;height: 100%;width: 100%;position: absolute;top: 0;text-align: center;}
 		#full-putih img{width: 80%;margin-top: 40%;}
-		.back{background: #6758c9;color: #fff;}
-		.back img{width: 20px;height: auto;}
 		.kondisional{background: #fff;border: 3px solid #000;border-radius: 25px;}
 		.kondisional-wrap{padding: 20px;}
 		.mb-3{margin-bottom: 15px;}
@@ -94,10 +120,15 @@
 		.konten > div{
 		  padding-left: 15px;
 		}
+		.hubungi-konselor,.back,.hubungi{background: #6758c9;color: #fff;}
+		/*.hubungi-konselor{font-size: 16px;}*/
+		.back img{width: 20px;height: auto;}
 		#load img{width: 3%;}
 		.jawaban img{width: 100%;}
 		.video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; width: 100%;}
 		.video-container iframe, .video-container object, .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+		.hubungi{padding: 7px 15px;display: inline-block;border-radius: 25px}
+		.text-right{text-align: right;}
 	</style>
 </head>
 <body>
@@ -108,17 +139,16 @@
 
 	<script src="app.js"></script>
 	<script>
+
 		document.getElementById("full-putih").innerHTML = `<img src="${generateBlobSVG("splash_image()")}" />`;
 
-		screen({
-			dataset : {
-				data : 3
-			}
-		});
 		var SERVER = {};
 		SERVER.menu = new Model_ofson();
 		SERVER.menu.gas = "AKfycbyMKA70M1RsPK3j6RL3CE0JXOlj3sEyWcktdJWeBikwHPivIEMmVRIGl0gIcvR_Gs2XXQ";
 		SERVER.menu.getGas(function (res) {
+			DATA.wa = res.status.wa;
+			DATA.deskripsi = res.status.deskripsi;
+			
 			for (var i = 0; i < res.data.length; i++) {
 				if (res.data[i].kategori == 1) {
 					DATA.asi.push(res.data[i])
@@ -130,7 +160,11 @@
 					DATA.pekerja.push(res.data[i])
 				}
 			}
-
+			screen({
+				dataset : {
+					data : 3
+				}
+			});
 			document.getElementById("load").innerHTML = "";
 			document.getElementById("splash").innerHTML = "";
 		})

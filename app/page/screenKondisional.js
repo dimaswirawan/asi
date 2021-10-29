@@ -89,7 +89,7 @@ function screenKondisional(res) {
 		document.body.style.backgroundColor = "#fff";
 	}else{
 		result += `
-			<a href="https://wa.me/${DATA.wa}">
+			<a href="#" onclick="window.open('https://wa.me/${DATA.wa}', '_system'); return false;">
 				<div class="kondisional kondisional-item p-3 mb-3 hubungi-konselor" onclick="">
 					<div class="icon"><span class="i-wa"></span></div>
 					<div class="konten"><div>Klik Disini! Jika Tidak Ada Kondisi Yang Anda Alami</div></div>

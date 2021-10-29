@@ -1,6 +1,6 @@
 function screen(res) {
 	let id = res.dataset.data;
-	let konten = `<div class="text-right p-3"><a href="https://wa.me/${DATA.wa}"><span class="hubungi"><span class="i-wa"></span> <small>Chat Konselor</small></span></a></div>`;
+	let konten = `<div class="text-right p-3"><a href="#" onclick="window.open('https://wa.me/${DATA.wa}', '_system'); return false;"><span class="hubungi"><span class="i-wa"></span> <small>Chat Konselor</small></span></a></div>`;
 	let image = "";
 	if (id == 1) {
 		image = `<img src="${image_asi_blob}" alt="">`;
