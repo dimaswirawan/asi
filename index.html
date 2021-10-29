@@ -133,6 +133,7 @@
 	<div id="load"></div>
 	<div id="root"></div>
 	<div id="splash"><div id="full-putih">
+	</div></div>
 	<script src="app/helper/saveHistory.js"></script>
 	<script src="app/helper/back.js"></script>
 	<script src="app/helper/render.js"></script>
@@ -171,8 +172,7 @@
 		SERVER.menu.getGas(function (res) {
 			DATA.wa = res.status.wa;
 			DATA.deskripsi = res.status.deskripsi;
-			// Keberhasilan menyusui sangat dipengaruhi oleh pengetahuan Ibu, dukungan menyusui dari provider kesehatan serta keluarga. AplikASI Menyusui siap membersamai Ibu dalam menghadapi hambatan dan permasalahan yang seringkali di jumpai dalam proses menyusui. Menyusui menjadi lebih Mudah dan Menyenangkan.
-			console.log(res.status)
+			
 			for (var i = 0; i < res.data.length; i++) {
 				if (res.data[i].kategori == 1) {
 					DATA.asi.push(res.data[i])
