@@ -94,6 +94,7 @@
 		  padding-left: 15px;
 		}
 		#load img{width: 3%;}
+		.jawaban img{width: 100%;}
 	</style>
 </head>
 <body>
@@ -122,12 +123,9 @@
 	<script src="app/data/init.js"></script>
 	<script src="app/data/image.js"></script>
 	<script src="app/data/menu.js"></script>
-	<script src="app/data/konten-asi.js"></script>
-	<script src="app/data/konten-baby.js"></script>
-	<script src="app/data/konten-ayah.js"></script>
-	<script src="app/data/konten-pekerja.js"></script>
 	
 	<script src="app/component/menu.js"></script>
+	<script src="app/lib/Model_ofson.js"></script>
 	
 
 	<script src="app/page/screen.js"></script>
@@ -137,17 +135,30 @@
 
 		document.getElementById("full-putih").innerHTML = `<img src="${generateBlobSVG("splash_image()")}" />`;
 
-		setTimeout(function () {
-			document.getElementById("load").innerHTML = "";
-			document.getElementById("splash").innerHTML = "";
-		},2000);
-
 		screen({
 			dataset : {
 				data : 3
 			}
 		});
+		var SERVER = {};
+		SERVER.menu = new Model_ofson();
+		SERVER.menu.gas = "AKfycbyMKA70M1RsPK3j6RL3CE0JXOlj3sEyWcktdJWeBikwHPivIEMmVRIGl0gIcvR_Gs2XXQ";
+		SERVER.menu.getGas(function (res) {
+			for (var i = 0; i < res.data.length; i++) {
+				if (res.data[i].kategori == 1) {
+					DATA.asi.push(res.data[i])
+				}else if (res.data[i].kategori == 2) {
+					DATA.baby.push(res.data[i])
+				}else if (res.data[i].kategori == 3) {
+					DATA.ayah.push(res.data[i])
+				}else if (res.data[i].kategori == 4) {
+					DATA.pekerja.push(res.data[i])
+				}
+			}
 
+			document.getElementById("load").innerHTML = "";
+			document.getElementById("splash").innerHTML = "";
+		})
 	</script>
 </body>
 </html>
