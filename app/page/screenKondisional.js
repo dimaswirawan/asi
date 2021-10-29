@@ -16,7 +16,11 @@ function screenKondisional(res) {
 		if (data[i].parent == res.parent) {
 			if (data[i].jawaban) {
 				jawaban = true;
-				result += `<div class="jawaban"><h3>Penjelasan</h3>${data[i].penjelasan}</div><div class="jawaban"><h3>Advice</h3>${data[i].advice}</div>`
+				result += `<div class="jawaban"><h3>Penjelasan</h3>${data[i].penjelasan}</div><div class="jawaban mb-3"><h3>Advice</h3>${data[i].advice}</div>`;
+
+				if (data[i].youtube) {
+					result += `<div class="embed-container"><iframe src="https://www.youtube.com/embed/${data[i].youtube}" frameBorder="0"></iframe></div>`;
+				}
 			}else{
 				result += `
 					<div class="kondisional kondisional-item p-3 mb-3" onclick="screenKondisional({parent:${data[i].id},id:${res.id}})">
